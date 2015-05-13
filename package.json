@@ -1,0 +1,17 @@
+{
+  "name": "pilau-developers-custom-fields",
+  "version": "1.0.0",
+  "private": false,
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/pilau/developers-custom-fields.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-autoprefixer": "^2.2.0",
+    "grunt-notify": "~0.2.17",
+    "matchdep": "^0.3.0",
+    "grunt-sass": "~0.12.1"
+  }
+}
