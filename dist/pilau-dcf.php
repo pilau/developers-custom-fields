@@ -30,6 +30,18 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+
+/**
+ * The file path for the main plugin file
+ *
+ * This is used for the in_plugin_update_message-{$file} hook
+ *
+ * @since	1.0.0
+ */
+define( 'PDCF_PRIMARY_FILE_PATH', plugin_basename( __FILE__ ) );
+
+
+register_activation_hook( __FILE__, 'activate_pilau_dcf' );
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-pilau-dcf-activator.php
@@ -39,6 +51,7 @@ function activate_pilau_dcf() {
 	Pilau_DCF_Activator::activate();
 }
 
+register_deactivation_hook( __FILE__, 'deactivate_pilau_dcf' );
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-pilau-dcf-deactivator.php
@@ -48,14 +61,13 @@ function deactivate_pilau_dcf() {
 	Pilau_DCF_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_pilau_dcf' );
-register_deactivation_hook( __FILE__, 'deactivate_pilau_dcf' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-pilau-dcf.php';
+
 
 /**
  * Begins execution of the plugin.

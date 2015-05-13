@@ -48,6 +48,15 @@ class Pilau_DCF {
 	protected $plugin_name;
 
 	/**
+	 * The title of this plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      string    $plugin_title    The title of this plugin.
+	 */
+	protected $plugin_title;
+
+	/**
 	 * The current version of the plugin.
 	 *
 	 * @since    1.0.0
@@ -69,6 +78,29 @@ class Pilau_DCF {
 
 		$this->plugin_name = 'pilau-dcf';
 		$this->version = '1.0.0';
+		$this->title = "Pilau Developer's Custom Fields";
+
+		/*
+		$slt_custom_fields = array();
+		$slt_custom_fields['prefix'] = '_slt_';
+		$slt_custom_fields['hide_default_custom_meta_box'] = true;
+		$slt_custom_fields['datepicker_default_format'] = 'dd/mm/yy';
+		$slt_custom_fields['timepicker_default_format'] = 'hh:mm';
+		$slt_custom_fields['timepicker_default_ampm'] = false;
+		$slt_custom_fields['boxes'] = array();
+		$slt_custom_fields['query_vars'] = array();
+
+// Constants that can be overridden in wp-config.php
+		if ( ! defined( 'SLT_CF_USE_GMAPS' ) ) {
+			define( 'SLT_CF_USE_GMAPS', true );
+		}
+		if ( ! defined( 'SLT_CF_USE_FILE_SELECT' ) ) {
+			define( 'SLT_CF_USE_FILE_SELECT', true );
+		}
+		if ( ! defined( 'SLT_CF_HANDLE_TERM_SPLITTING' ) ) {
+			define( 'SLT_CF_HANDLE_TERM_SPLITTING', false );
+		}
+*/
 
 		$this->load_dependencies();
 		$this->set_locale();
