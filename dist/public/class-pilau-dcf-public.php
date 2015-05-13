@@ -61,8 +61,6 @@ class Pilau_DCF_Public {
 	public function enqueue_styles() {
 
 		/**
-		 * This function is provided for demonstration purposes only.
-		 *
 		 * An instance of this class should be passed to the run() function
 		 * defined in Pilau_DCF_Loader as all of the hooks are defined
 		 * in that particular class.
@@ -72,7 +70,7 @@ class Pilau_DCF_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pilau-dcf-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pilau-dcf-registration.css', array(), $this->version, 'all' );
 
 	}
 

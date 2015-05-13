@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	// destination > source
 	var sassFilesObject = {};
 	sassFilesObject['dist/admin/css/pilau-dcf-admin.css'] = 'dist/admin/css/pilau-dcf-admin.scss';
-	sassFilesObject['dist/public/css/pilau-dcf-public.css'] = 'dist/public/css/pilau-dcf-public.scss';
+	sassFilesObject['dist/public/css/pilau-dcf-registration.css'] = 'dist/public/css/pilau-dcf-registration.scss';
 
 	// Load NPM tasks
 	require( 'matchdep' ).filterDev( 'grunt-*' ).forEach( grunt.loadNpmTasks );
