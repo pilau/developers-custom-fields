@@ -20,22 +20,13 @@
 class Pilau_DCF_Field {
 
 	/**
-	 * The prefix for the meta key
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $prefix    The prefix for the meta key
-	 */
-	private $prefix;
-
-	/**
 	 * Set up the field
 	 *
-	 * @since    1.0.0
+	 * @since		1.0.0
+	 * @param		array	$field
 	 */
-	public function __construct() {
+	public function __construct( $field ) {
 
-		$this->prefix = '_pdcf_';
 	}
 
 }

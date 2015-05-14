@@ -66,6 +66,24 @@ class Pilau_DCF {
 	protected $version;
 
 	/**
+	 * The prefix for meta keys
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $prefix    The prefix for meta keys
+	 */
+	private $prefix;
+
+	/**
+	 * The boxes of custom fields
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      array	    $version    The boxes of custom fields
+	 */
+	protected $boxes;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -76,9 +94,11 @@ class Pilau_DCF {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'pilau-dcf';
-		$this->version = '1.0.0';
-		$this->title = "Pilau Developer's Custom Fields";
+		$this->plugin_name		= 'pilau-dcf';
+		$this->version			= '1.0.0';
+		$this->title			= "Pilau Developer's Custom Fields";
+		$this->prefix			= '_pdcf_';
+		$this->boxes			= array();
 
 		/*
 		$slt_custom_fields = array();
@@ -87,7 +107,6 @@ class Pilau_DCF {
 		$slt_custom_fields['datepicker_default_format'] = 'dd/mm/yy';
 		$slt_custom_fields['timepicker_default_format'] = 'hh:mm';
 		$slt_custom_fields['timepicker_default_ampm'] = false;
-		$slt_custom_fields['boxes'] = array();
 		$slt_custom_fields['query_vars'] = array();
 
 // Constants that can be overridden in wp-config.php
@@ -149,6 +168,16 @@ class Pilau_DCF {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-pilau-dcf-public.php';
+
+		/**
+		 * The class responsible for defining boxes
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pilau-dcf-box.php';
+
+		/**
+		 * The class responsible for defining fields
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pilau-dcf-field.php';
 
 		$this->loader = new Pilau_DCF_Loader();
 
@@ -242,6 +271,17 @@ class Pilau_DCF {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Register a box
+	 *
+	 * @since	1.0.0
+	 * @param	array	$box	Details of the box, including an array of its fields
+	 * @return	void
+	 */
+	public function register_box( $box ) {
+		$this->boxes[] = new Pilau_DCF_Box( $box );
 	}
 
 }
